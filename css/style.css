@@ -1,0 +1,138 @@
+
+* {
+  margin: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+main {
+  padding: 25px;
+  border-top-style: solid;
+  border-color: black;
+  min-height: 555px;
+}
+body {
+  height: 100vh;
+  background-image: linear-gradient(to right, rgb(186, 231, 186),blue, violet, orange,yellow,indigo);
+  opacity: 0.95;
+}
+h2 {
+  text-align: left;
+  margin-bottom: 0px;
+  padding: 0px;
+  color: blue;
+  text-shadow: 1px 1px 3px white, -1px -1px 3px white;
+}
+nav {
+  display: block;
+  margin-bottom: 50px;
+}
+#nav-btns, #form-buttons {
+  display: block;
+  float: right;
+}
+#item_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+footer {
+  text-align: center;  
+  font-size: 20px;
+  border-top-style: solid;
+  border-color: black;
+  color: blue;
+  text-shadow: 1px 1px 3px white, -1px -1px 3px white;
+}
+.product {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: gray;
+  width: 230px;
+  min-height: 150px;
+  line-height: 15px;
+  text-align: center;
+}
+.product-spec {
+  padding: 0px;
+}
+.delete-checkbox {
+  display: block;
+}
+button {
+  font-size: 15px;
+  color: white;
+  font-weight: 600;
+  width: 180px;
+  height: 40px;
+}
+button:hover {
+  font-size: 15px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 5px;
+  animation-duration: 1s;
+  animation-name: example3;
+  animation-fill-mode: forwards;
+}
+@keyframes example3 {
+  from {
+    padding-left: 0px;
+  }
+  to {
+    padding-left: 40px;
+  }
+  from {
+    background-color: #6ee533;
+  }
+  to {
+    background-color: #121aa7;
+  }
+  from {
+    color: #121aa7;
+  }
+  to {
+    color: red;
+  }
+  from {
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6), 6px 6px 6px ;
+  }
+  to {
+    box-shadow: 2px 2px 3px red, 2px 2px 25px;
+  }
+}
+#submit, 
+#add-prod-btn {
+  background-color: darkgreen;
+}
+#delete-product-btn, 
+#cancel {
+  background-color: red;
+}
+.errs, ul {
+  color: white;
+  font-style: italic;
+  font-size: 15px;
+  list-style-type: circle;
+  text-shadow: 3px 3px 6px red, -3px 3px 6px red;  
+}
+#dims-cont {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  
+  h2 {
+    font-size: 22px;
+  }.errs, ul, #product_form, input, select {
+    font-size: 12px;
+  }
+  button {
+    font-size: 12px;
+    width: 100px;
+    height: 30px;
+  }
+  .product {
+  line-height: 14px;
+  font-size: 12px;
+  width: 180px;
+  }
+}
