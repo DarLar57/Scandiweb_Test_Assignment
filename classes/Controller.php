@@ -24,7 +24,6 @@ class Controller
             }
         }
         return $children;
-        
     }
     public function select_all()
     {
@@ -32,7 +31,7 @@ class Controller
         $result = DB::$db->query($sql);
         // Results into objects in arr
         $obj_arr = [];
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_array()) {
             
             $obj_arr[] = $row;
         }

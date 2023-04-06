@@ -7,7 +7,7 @@ $titlePage = 'Product List';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
   $controller->delete();
 }
-// getting all Products when loading homepage indirectly via Controller
+// getting all Products when loading homepage indirectly via Controller by use of DB class
 $productsInDB = $controller->select_all();
 ?>
 <?php include('./common/head.php'); ?>
@@ -24,19 +24,21 @@ $productsInDB = $controller->select_all();
   <main>
   <!-- Getting all the items -->
     <form id="item_list" method="POST">
-        <?php foreach($productsInDB as $item) {?>
+        <?php 
+        
+        foreach($productsInDB as $item) { $i = 0; ?>
+          
           <div class="product">
             <input type="checkbox" name="delIdCheckBox[]" id="<?= $item['id'] ?>" value="<?= $item['id'] ?>" class="delete-checkbox">
             <div class="product-spec">
-              <p><?= $item['sku']; ?></p>
-              <p><?= $item['name']; ?></p>
-              <p><?= $item['price'] . ' $'; ?></p>
+              <p><?= $item[++$i]; ?></p>
+              <p><?= $item[++$i]; ?></p>
+              <p><?= $item[++$i] . ' $'; ?></p>
               <p>
                   <?php 
-                  echo $item['weight'] != 0 ? "Weight: " . $item['weight'] . " KG" : '';
-                  echo $item['size'] != 0 ?  "Size: " . $item['size'] . " MB" : '';
-                  echo $item['dimensions'] != ('0' || null) ? 
-                  "Dimensions: " . $controller->modify_db_dimensions($item['dimensions']): '';
+                  echo $item[++$i] != 0 ? "Weight: " . $item[$i] . " KG" : '';
+                  echo $item[++$i] != 0 ?  "Size: " . $item[$i] . " MB" : '';
+                  echo $item[++$i] != ('0' || null) ? "Dimensions: " . $controller->modify_db_dimensions($item[$i]): '';
                   ?>
              </p>
            </div>

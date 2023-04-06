@@ -43,6 +43,6 @@ if(isset($_POST['submit']) && empty($errs)){
     }
     header("Location: index.php");
 
-    //inserting into database through DB class
+    //inserting into database through Controller class using DB class
     $controller->input($add_obj);//
 }

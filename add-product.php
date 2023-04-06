@@ -29,7 +29,7 @@ include('./common/head.php'); ?>
       <label for="productType">Type Switcher</label>
       <select name="typeSwitcher" id="productType">
       
-      <!-- improved by automatic extraction of all Product types via Controller by GETTER method extended from abstract class Product -->
+      <!-- improved by automatic extraction of all Product types (instead of static listing) via Controller by GETTER method extended from abstract class Product -->
       <?php foreach($controller->getProductTypes() as $type) {?>
           <option value=<?= '"' . $type . '"'; ?> id=<?= '"' . strtolower($type) . '"'; ?> <?= $controller->selected($type); ?> ><?= $type; ?></option>
       <?php }; ?>
