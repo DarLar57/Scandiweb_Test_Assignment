@@ -7,7 +7,7 @@ $titlePage = 'Product List';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
   $controller->delete();
 // getting all Products when loading homepage indirectly via Controller
-  $productsInDB = $controller->select_all();
+$productsInDB = $controller->select_all();
 }
 ?>
 <?php include('./common/head.php'); ?>
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
   <main>
   <!-- Getting all the items -->
     <form id="item_list" method="POST">
-        <?php foreach($productsInDB as $item) {?>
+        <?php foreach($controller->select_all() as $item) {?>
           <div class="product">
             <input type="checkbox" name="delIdCheckBox[]" id="<?= $item['id'] ?>" value="<?= $item['id'] ?>" class="delete-checkbox">
             <div class="product-spec">
