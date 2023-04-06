@@ -29,7 +29,7 @@ $productsInDB = $controller->select_all();
         foreach($productsInDB as $item) { $i = 0; ?>
           
           <div class="product">
-            <input type="checkbox" name="delIdCheckBox[]" id="<?= $item['id'] ?>" value="<?= $item['id'] ?>" class="delete-checkbox">
+            <input type="checkbox" name="delIdCheckBox[]" id="<?= $item[$i] ?>" value="<?= $item[$i] ?>" class="delete-checkbox">
             <div class="product-spec">
               <p><?= $item[++$i]; ?></p>
               <p><?= $item[++$i]; ?></p>
