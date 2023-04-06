@@ -12,5 +12,6 @@ class DVD extends Product
         $this->name = $args['name'];
         $this->price = $args['price'];
         $this->size = $args['size'];
+        $this->type = 'DVD';
     }
 }

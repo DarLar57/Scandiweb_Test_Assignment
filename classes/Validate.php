@@ -53,13 +53,13 @@ function validate_inputs()
     {
         $input_prop = ['sku', 'name', 'price'];    
         switch ($_POST['typeSwitcher']) {
-            case 'dvd':
+            case 'DVD':
                 $input_prop[] = 'size';
                 break;
-            case 'book':
+            case 'Book':
                 $input_prop[] = 'weight';
                 break;
-            case 'furniture':
+            case 'Furniture':
                 array_push($input_prop,'w', 'l', 'h');
                 break;
         }    

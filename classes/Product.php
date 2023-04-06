@@ -9,4 +9,9 @@ abstract class Product
     public $sku;
     public $name;
     public $price;
+    public $type;
+
+    function getType() {
+        return $this->type;
+    }
 }

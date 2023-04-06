@@ -3,9 +3,11 @@
 include_once('./other/initializing.php'); 
 
 $titlePage = 'Product List';
-// Deleting items from db
+// Deleting items from db via Controller
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
-  $db_obj->delete();
+  $controller->delete();
+// getting all Products when loading homepage indirectly via Controller
+  $productsInDB = $controller->select_all();
 }
 ?>
 <?php include('./common/head.php'); ?>
@@ -22,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
   <main>
   <!-- Getting all the items -->
     <form id="item_list" method="POST">
-        <?php foreach($db_obj->select_all() as $item) {?>
+        <?php foreach($productsInDB as $item) {?>
           <div class="product">
             <input type="checkbox" name="delIdCheckBox[]" id="<?= $item['id'] ?>" value="<?= $item['id'] ?>" class="delete-checkbox">
             <div class="product-spec">
@@ -34,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
                   echo $item['weight'] != 0 ? "Weight: " . $item['weight'] . " KG" : '';
                   echo $item['size'] != 0 ?  "Size: " . $item['size'] . " MB" : '';
                   echo $item['dimensions'] != ('0' || null) ? 
-                  "Dimensions: " . $db_obj->modify_db_dimensions($item['dimensions']): '';
+                  "Dimensions: " . $controller->modify_db_dimensions($item['dimensions']): '';
                   ?>
              </p>
            </div>

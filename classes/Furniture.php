@@ -16,5 +16,6 @@ class Furniture extends Product
         $this->name = $args['name'];
         $this->price = $args['price'];
         $this->dimensions = "[" . $args['h'] . ", " . $args['w'] . ", " . $args['l'] . "]";
+        $this->type = 'Furniture';
     }
 }

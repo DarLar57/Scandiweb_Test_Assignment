@@ -1,6 +1,7 @@
 <?php
 
 use classes\DB;
+use classes\Controller;
 use classes\Book;
 use classes\DVD;
 use classes\Furniture;
@@ -8,15 +9,18 @@ use classes\Validate;
 
 include_once('./classes/Product.php');
 include_once('./classes/DB.php');
+include_once('./classes/Controller.php');
 include_once('./classes/Book.php');
 include_once('./classes/DVD.php');
 include_once('./classes/Validate.php');
 include_once('./classes/Furniture.php');
 
 $db_obj = new DB;
+$controller = new Controller;
 $validate = new Validate;
 
 $errs = $validate->validate_inputs();
+
 if(isset($_POST['submit']) && empty($errs)){
     $arg = [];
     $arg['sku'] = $_POST['sku'] ?? NULL;
@@ -31,7 +35,7 @@ if(isset($_POST['submit']) && empty($errs)){
     if ($_POST['size'] != NULL) {
         $add_obj = new DVD($arg);
     }
-    if ($_POST['weight'] != NULL) {
+    elseif ($_POST['weight'] != NULL) {
         $add_obj = new Book($arg);
     }
     elseif ($_POST['w'] != NULL && $_POST['l'] != NULL && $_POST['h'] != NULL) {
@@ -40,5 +44,5 @@ if(isset($_POST['submit']) && empty($errs)){
     header("Location: index.php");
 
     //inserting into database through DB class
-    $db_obj->input($add_obj);
+    $controller->input($add_obj);//
 }

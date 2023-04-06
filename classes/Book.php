@@ -13,5 +13,6 @@ class Book extends Product
         $this->name = $args['name'];
         $this->price = $args['price'];
         $this->weight = $args['weight'];
+        $this->type = 'Book';
     }
 }

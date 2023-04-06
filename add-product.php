@@ -28,9 +28,12 @@ include('./common/head.php'); ?>
       <input type="text" name="price" id="price" placeholder="0.00" value="<?= $_POST['price'] ?? ''; ?>"><br><br>
       <label for="productType">Type Switcher</label>
       <select name="typeSwitcher" id="productType">
-        <option value="dvd" id="DVD" <?= $db_obj->get_type('dvd'); ?> >DVD</option>
-        <option value="book" id="Book" <?= $db_obj->get_type('book'); ?> >Book</option>
-        <option value="furniture" id="Furniture" <?= $db_obj->get_type('furniture'); ?> >Furniture</option>
+      
+      <!-- improved by automatic extraction of all Product types via Controller by GETTER method extended from abstract class Product -->
+      <?php foreach($controller->getProductTypes() as $type) {?>
+          <option value=<?= '"' . $type . '"'; ?> id=<?= '"' . strtolower($type) . '"'; ?> <?= $controller->selected($type); ?> ><?= $type; ?></option>
+      <?php }; ?>
+
       </select>
       <div id="size-cont">
         <p>Please provide size in MB.</p>
@@ -53,9 +56,10 @@ include('./common/head.php'); ?>
     </div>
     </form>
     <?= $errs; ?>
+    <div>
+    </div>
   </main>
-  
-<?php include('./common/footer.php'); ?>
+  <?php include('./common/footer.php'); ?>
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js">
   </script>

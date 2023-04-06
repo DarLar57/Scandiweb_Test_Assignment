@@ -10,21 +10,21 @@ $(document).ready(() => {
 
 const productSelect = () => {
   switch (PRODUCT_SELECT.val()) {
-    case 'furniture': 
+    case 'Furniture': 
     {
       $("#size-cont").hide();
       $("#weight-cont").hide();
       $("#dims-cont").show();
       break;
     }
-    case 'dvd': 
+    case 'DVD': 
     {
       $("#size-cont").show();
       $("#weight-cont").hide();
       $("#dims-cont").hide();
       break;
     }
-    case 'book': 
+    case 'Book': 
     {
       $("#size-cont").hide();
       $("#weight-cont").show();
