@@ -31,11 +31,9 @@ function validate_inputs()
                 $errs[] = "<b>Please</b>include only letters, numbers or the combination of both in the <b>Name</b>!";
             }    
             // sku in db?
-            $sql = "SELECT * FROM products WHERE sku='" . $_POST['sku'] . "'";
-            $result = DB::$db->query($sql);
-            if (mysqli_num_rows($result) > 0) {
-                $errs[] = "<b>Please</b>provide unique stock keeping unit<b>(SKU)</b>as the inserted SKU is already in DB! ";
-            }    
+            $db_oper = new DB_Operations;
+            $db_oper->checkSKU() != (NULL or '')? $errs[] = $db_oper->checkSKU() : ''; 
+            
             $attrs=['weight', 'price', 'size', 'h', 'l', 'w'];
             for($i = 0; $i < count($attrs); $i++) {
                 $a = $attrs[$i];

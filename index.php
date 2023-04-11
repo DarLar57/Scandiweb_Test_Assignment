@@ -5,10 +5,10 @@ include_once('./other/initializing.php');
 $titlePage = 'Product List';
 // Deleting items from db via Controller
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
-  $controller->delete();
+  $controller->deleteSelectedProducts();
 }
 // getting all Products when loading homepage indirectly via Controller by use of DB class
-$productsInDB = $controller->select_all();
+$productsInDB = $controller->getAllProducts();
 ?>
 <?php include('./common/head.php'); ?>
 <body>

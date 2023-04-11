@@ -2,6 +2,9 @@
 
 namespace classes;
 
+use classes\DB;
+use classes\DB_Operations;
+
 class Controller
 {
     //public $type;
@@ -13,8 +16,7 @@ class Controller
             echo 'selected';
         }
     }
-    
-    //types of all Products exracted from all sub-classes to form automativally options
+        //types of all Products exracted from all sub-classes to form automativally options
     function getProductTypes()
     {
         $children = array();
@@ -25,31 +27,14 @@ class Controller
         }
         return $children;
     }
-    public function select_all()
+    public function getAllProducts()
     {
-        $sql = "SELECT * FROM products ORDER BY id";
-        $result = DB::$db->query($sql);
-        // Results into objects in arr
-        $obj_arr = [];
-        while ($row = $result->fetch_array()) {
-            
-            $obj_arr[] = $row;
-        }
-        $result->free_result();
-        return $obj_arr;
-        
+        return (new DB_Operations)->get_all();
     }
     // Deleting items in db
-    public function delete()
+    public function deleteSelectedProducts()
     {
-        foreach($_POST['delIdCheckBox'] as $del){ 
-            $spec_char_del[] = htmlspecialchars($del);
-        }
-        $sql = "DELETE FROM products WHERE id IN(" . implode(',', $spec_char_del) . ")";
-        $result = DB::$db->query($sql);
-        if ($result) {
-            header("refresh: 0");
-        }
+        (new DB_Operations)->delete();
     }
     // Inserting items in db
     public function input($add_obj)

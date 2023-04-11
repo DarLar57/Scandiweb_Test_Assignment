@@ -1,6 +1,7 @@
 <?php
 
 use classes\DB;
+use classes\DB_Operations;
 use classes\Controller;
 use classes\Book;
 use classes\DVD;
@@ -9,6 +10,7 @@ use classes\Validate;
 
 include_once('./classes/Product.php');
 include_once('./classes/DB.php');
+include_once('./classes/DB_Operations.php');
 include_once('./classes/Controller.php');
 include_once('./classes/Book.php');
 include_once('./classes/DVD.php');
@@ -16,6 +18,7 @@ include_once('./classes/Validate.php');
 include_once('./classes/Furniture.php');
 
 $db_obj = new DB;
+$db_oper = new DB_Operations;
 $controller = new Controller;
 $validate = new Validate;
 
