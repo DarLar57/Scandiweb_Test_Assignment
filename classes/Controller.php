@@ -57,7 +57,6 @@ class Controller
         $attributes = $this->sanitize_attr($add_obj);
         $sql = "INSERT INTO products (" . implode(', ', array_keys($attributes)) . ") VALUES ('";
         $sql .= implode("', '", array_values($attributes)) . "')";
-        var_dump($sql);
         $result = DB::$db->query($sql);
         if ($result) {
             $this->id = DB::$db->insert_id;
