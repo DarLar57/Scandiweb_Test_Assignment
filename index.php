@@ -4,7 +4,7 @@ include_once('./initialize/initializing.php');
 
 $titlePage = 'Product List';
 
-// Deleting items from db via Controller
+// Deleting items from db indirectly via Controller
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delIdCheckBox'])) {
     $controller->orderDeleteProducts();
 }

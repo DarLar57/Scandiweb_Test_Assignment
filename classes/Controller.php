@@ -14,7 +14,7 @@ class Controller
         }
     }
 
-    //types of all Products exracted from all sub-classes to form automativally options
+    //types of all Products extracted from all sub-classes to form automativally options
     function getProductTypes(): array
     {
         $children = array();
@@ -27,18 +27,19 @@ class Controller
         return $children;
     }
 
+    //Requesting arr of items from db via DbOperations class
     public function orderAllProducts(): array
     {
         return (new DbOperations)->get_all();
     }
 
-    // Deleting items in db
+    // Requesting items' deletion via DbOperations class
     public function orderDeleteProducts()
     {
         (new DbOperations)->delete();
     }
     
-    // Inserting items in db
+    // Requesting to insert items via DbOperations class
     public function orderInput($add_obj): array
     {
         $attributes = $this->sanitize_attr($add_obj);
