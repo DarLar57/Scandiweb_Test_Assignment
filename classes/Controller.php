@@ -13,39 +13,41 @@ class Controller
             echo 'selected';
         }
     }
-        //types of all Products exracted from all sub-classes to form automativally options
-    function getProductTypes()
+
+    //types of all Products exracted from all sub-classes to form automativally options
+    function getProductTypes(): array
     {
         $children = array();
+
         foreach(get_declared_classes() as $class) {
-            if (is_subclass_of( $class, 'classes\Product' )){
+            if (is_subclass_of( $class, 'classes\Product' )) {
                 $children[] = (new $class)->getType();
             }
         }
         return $children;
     }
-    public function orderAllProducts()
+
+    public function orderAllProducts(): array
     {
-        return (new DB_Operations)->get_all();
+        return (new DbOperations)->get_all();
     }
-    public function orderAllProductsHTML()
-    {
-        return (new DB_Operations)->get_all();
-    }
+
     // Deleting items in db
     public function orderDeleteProducts()
     {
-        (new DB_Operations)->delete();
+        (new DbOperations)->delete();
     }
+    
     // Inserting items in db
-    public function orderInput($add_obj)
+    public function orderInput($add_obj): array
     {
         $attributes = $this->sanitize_attr($add_obj);
-        (new DB_Operations)->insert($attributes);
+        (new DbOperations)->insert($attributes);
         return $attributes;
     }
+
     // Escaping Values improper for SQL
-    private function sanitize_attr($add_obj)
+    private function sanitize_attr($add_obj): array
     {
         $sanitized = [];
         foreach ($this->attributes($add_obj) as $key => $value) {
@@ -56,8 +58,9 @@ class Controller
         }
         return $sanitized;
     }
+
     // Geting Cols and Values for the Class
-    private function attributes($add_obj)
+    private function attributes($add_obj): array
     {
         $attributes = [];
         foreach ($add_obj as $key => $value) {
@@ -68,14 +71,16 @@ class Controller
         }
         return $attributes;
     }
-    function modify_db_dimensions($str)
+
+    function modify_db_dims($str): string
     {
         $replaced_str_dim = str_replace(['[', ']'], ' ', $str);
         $new_arr = explode(', ', $replaced_str_dim);
         $new_str = implode('x', $new_arr);
         return $new_str;
     }
-    function orderValidate()
+
+    function orderValidate(): ?string
     {
         return (new Validate)->validate_inputs();
     }

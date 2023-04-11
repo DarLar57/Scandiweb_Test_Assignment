@@ -2,7 +2,6 @@
 
 namespace classes;
 
-
 class Book extends Product
 {
     public $weight;

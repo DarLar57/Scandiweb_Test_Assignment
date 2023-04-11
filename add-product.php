@@ -21,17 +21,24 @@ include('./common/head.php'); ?>
   <main>
     <form id="product_form" method='POST' action="">
     <label for="sku">SKU</label>
-      <input type="text" name="sku" id="sku" maxlength="10" placeholder="ABC012345" value="<?= $_POST['sku'] ?? ''; ?>"><br><br>
+      <input type="text" name="sku" id="sku" maxlength="10" placeholder="ABC012345" value="<?= $_POST['sku'] ?? ''; ?>">
+      <br><br>
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" maxlength="40" placeholder="Name of product" value="<?= $_POST['name'] ?? ''; ?>"><br><br>
+      <input type="text" name="name" id="name" maxlength="40" placeholder="Name of product" value="<?= $_POST['name'] ?? ''; ?>">
+      <br><br>
       <label for="price">Price ($)</label>
-      <input type="text" name="price" id="price" placeholder="0.00" value="<?= $_POST['price'] ?? ''; ?>"><br><br>
+      <input type="text" name="price" id="price" placeholder="0.00" value="<?= $_POST['price'] ?? ''; ?>">
+      <br><br>
       <label for="productType">Type Switcher</label>
       <select name="typeSwitcher" id="productType">
-      
-      <!-- improved by automatic extraction of all Product types (instead of static listing) via Controller by GETTER method extended from abstract class Product -->
-      <?php foreach($controller->getProductTypes() as $type) {?>
-          <option value=<?= '"' . $type . '"'; ?> id=<?= '"' . strtolower($type) . '"'; ?> <?= $controller->selected($type); ?> ><?= $type; ?></option>
+      <!-- improved by automatic extraction of all Product types 
+      (instead of static listing) via Controller by GETTER method 
+      extended from abstract class Product -->
+
+<?php foreach($controller->getProductTypes() as $type) {?>
+
+        <option value=<?= '"' . $type . '"'; ?> id=<?= '"' . strtolower($type) . '"'; ?><?= $controller->selected($type); ?> ><?= $type; ?></option>
+
       <?php }; ?>
 
       </select>
@@ -59,7 +66,8 @@ include('./common/head.php'); ?>
     <div>
     </div>
   </main>
-  <?php include('./common/footer.php'); ?>
+
+<?php include('./common/footer.php'); ?>
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js">
   </script>

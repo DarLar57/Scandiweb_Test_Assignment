@@ -7,21 +7,20 @@ use Exception;
 
 class DB
 {
-    
     public static $db;
-    const DB_HOST = "localhost";
-    const DB_USR = "root";
-    const DB_PSW = "";
-    const DB_NM = "epiz_33155713_Scandiweb_Test_Assignment_DL";
+    public const DB_HO = "localhost";
+    public const DB_US = "root";
+    public const DB_PS = "";
+    public const DB_NA = "epiz_33155713_Scandiweb_Test_Assignment_DL";
     public $type;
     public $id;
     
     public function __construct() 
     {
         try {
-            self::$db = new mysqli(DB::DB_HOST, DB::DB_USR, DB::DB_PSW, DB::DB_NM);
+            self::$db = new mysqli(DB::DB_HO, DB::DB_US, DB::DB_PS, DB::DB_NA);
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
-            }
+        }
 	}
 }
