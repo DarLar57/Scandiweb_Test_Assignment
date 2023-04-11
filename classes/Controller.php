@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace Classes;
 
 class Controller
 {
@@ -20,7 +20,7 @@ class Controller
         $children = array();
 
         foreach(get_declared_classes() as $class) {
-            if (is_subclass_of( $class, 'classes\Product' )) {
+            if (is_subclass_of( $class, 'Classes\Product' )) {
                 $children[] = (new $class)->getType();
             }
         }

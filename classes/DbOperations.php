@@ -1,8 +1,8 @@
 <?php
 
-namespace classes;
+namespace Classes;
 
-use classes\DB;
+use Classes\DB;
 
 class DbOperations extends DB
 {

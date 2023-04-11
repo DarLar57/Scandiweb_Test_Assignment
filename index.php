@@ -1,6 +1,6 @@
 <?php
 
-include_once('./other/initializing.php'); 
+include_once('./initialize/initializing.php'); 
 
 $titlePage = 'Product List';
 

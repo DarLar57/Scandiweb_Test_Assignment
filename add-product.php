@@ -1,6 +1,9 @@
 <?php 
 
-include('./other/initializing.php');
+include_once('./initialize/initializing.php');
+include_once('./Classes/Book.php');
+include_once('./Classes/DVD.php');
+include_once('./Classes/Furniture.php');
 
 $titlePage = 'Product Add';
 

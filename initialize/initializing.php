@@ -1,20 +1,13 @@
 <?php
 
-use classes\DbOperations;
-use classes\Controller;
-use classes\Book;
-use classes\DVD;
-use classes\Furniture;
-use classes\Validate;
+use Classes\DbOperations;
+use Classes\Controller;
+use Classes\Book;
+use Classes\DVD;
+use Classes\Furniture;
+use Classes\Validate;
 
-include_once('./classes/Product.php');
-include_once('./classes/DB.php');
-include_once('./classes/DbOperations.php');
-include_once('./classes/Controller.php');
-include_once('./classes/Book.php');
-include_once('./classes/DVD.php');
-include_once('./classes/Validate.php');
-include_once('./classes/Furniture.php');
+include_once('included.php');
 
 $db_oper = new DbOperations;
 $controller = new Controller;
