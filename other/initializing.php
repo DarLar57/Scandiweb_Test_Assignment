@@ -17,12 +17,11 @@ include_once('./classes/DVD.php');
 include_once('./classes/Validate.php');
 include_once('./classes/Furniture.php');
 
-$db_obj = new DB;
 $db_oper = new DB_Operations;
 $controller = new Controller;
 $validate = new Validate;
 
-$errs = $validate->validate_inputs();
+$errs = $controller->orderValidate();
 
 if(isset($_POST['submit']) && empty($errs)){
     $arg = [];
@@ -44,8 +43,7 @@ if(isset($_POST['submit']) && empty($errs)){
     elseif ($_POST['w'] != NULL && $_POST['l'] != NULL && $_POST['h'] != NULL) {
         $add_obj = new Furniture($arg);
     }
-    header("Location: index.php");
-
     //inserting into database through Controller class using DB class
-    $controller->input($add_obj);//
+    $controller->orderInput($add_obj);
+    header("Location: index.php");
 }

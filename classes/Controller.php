@@ -2,9 +2,6 @@
 
 namespace classes;
 
-use classes\DB;
-use classes\DB_Operations;
-
 class Controller
 {
     //public $type;
@@ -27,26 +24,25 @@ class Controller
         }
         return $children;
     }
-    public function getAllProducts()
+    public function orderAllProducts()
+    {
+        return (new DB_Operations)->get_all();
+    }
+    public function orderAllProductsHTML()
     {
         return (new DB_Operations)->get_all();
     }
     // Deleting items in db
-    public function deleteSelectedProducts()
+    public function orderDeleteProducts()
     {
         (new DB_Operations)->delete();
     }
     // Inserting items in db
-    public function input($add_obj)
+    public function orderInput($add_obj)
     {
         $attributes = $this->sanitize_attr($add_obj);
-        $sql = "INSERT INTO products (" . implode(', ', array_keys($attributes)) . ") VALUES ('";
-        $sql .= implode("', '", array_values($attributes)) . "')";
-        $result = DB::$db->query($sql);
-        if ($result) {
-            $this->id = DB::$db->insert_id;
-        }
-        return $result;
+        (new DB_Operations)->insert($attributes);
+        return $attributes;
     }
     // Escaping Values improper for SQL
     private function sanitize_attr($add_obj)
@@ -78,5 +74,9 @@ class Controller
         $new_arr = explode(', ', $replaced_str_dim);
         $new_str = implode('x', $new_arr);
         return $new_str;
+    }
+    function orderValidate()
+    {
+        return (new Validate)->validate_inputs();
     }
 }

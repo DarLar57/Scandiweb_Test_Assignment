@@ -3,7 +3,6 @@
 namespace classes;
 
 use classes\DB;
-use mysqli;
 
 class DB_Operations extends DB
 
@@ -41,14 +40,10 @@ class DB_Operations extends DB
                 return "<b>Please</b>provide unique stock keeping unit<b>(SKU)</b>as the inserted SKU is already in DB! ";
             } else return;
     }
-    public function input($attr)
+    public function insert($attr)
     {
         $sql = "INSERT INTO products (" . implode(', ', array_keys($attr)) . ") VALUES ('";
         $sql .= implode("', '", array_values($attr)) . "')";
-        $result = DB::$db->query($sql);
-        if ($result) {
-            $this->id = DB::$db->insert_id;
-        }
-        return $result;
+        DB::$db->query($sql);
     }
 }
