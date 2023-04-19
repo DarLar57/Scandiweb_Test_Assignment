@@ -5,6 +5,7 @@ namespace Classes;
 class DVD extends Product 
 {
     public $size;
+    public $type = 'DVD';
     static public $cols = ['id', 'sku', 'name', 'price', 'size'];
     public function __construct($args=[]) 
     {
@@ -12,6 +13,5 @@ class DVD extends Product
         $this->name = $args['name'];
         $this->price = $args['price'];
         $this->size = $args['size'];
-        $this->type = 'DVD';
     }
 }

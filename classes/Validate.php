@@ -4,79 +4,74 @@ namespace Classes;
 
 class Validate
 {
-    public static $cols =[];
-    public $id;
-    public $sku;
-    public $name;
-    public $price;
+    public $prodProp = [];
+    public function __construct() 
+    {
+        $this->prodProp = ['sku', 'name', 'price'];
+    }
 
-    public function validate_inputs()
+    public function validateInputs(): ?string
     {
         $errs = [];   
-         
-        if (isset($_POST['submit'])) {
-            $inputs_prop = $this->get_inputs();    
-            foreach ($inputs_prop as $input) {
-                if (empty($_POST[$input]) || trim($_POST[$input]) == '') {
-                    $errs[] = "<b>" . ucfirst($input) . "</b>cannot be empty!";
-                }
-            }
-            
-            // input strings include spec char?
-            $pattern = "/^[a-zA-Z0-9]*$/";
-            if (preg_match($pattern, $_POST['sku']) === 0) {
-                $err = "<b>Please</b>include only letters, numbers or the ";
-                $err .= "combination of both in the <b>SKU</b>!";
-                $errs[] = $err;
-            }    
-
-            if (preg_match($pattern, $_POST['name']) === 0) {
-                $err = "<b>Please</b>include only letters, numbers or the ";
-                $err .= "combination of both in the <b>Name</b>!";
-                $errs[] = $err;
-            }    
-
-            // sku in db?
-            $db_oper = new DbOperations;
-            $db_oper->checkSKU() != (NULL or '')? 
-                $errs[] = $db_oper->checkSKU() : ''; 
-            
-            $attrs=['weight', 'price', 'size', 'h', 'l', 'w'];
-            for($i = 0; $i < count($attrs); $i++) {
-                $a = $attrs[$i];
-                if (!empty($_POST[$a]) && !is_numeric($_POST[$a])) {
-                    $err = "<b>Please</b>provide numeric value for the <b>";
-                    $err .= "$attrs[$i]!</b>";
-                    $errs[] = $err;
-                }   
-            }
-
-            if (!empty($errs)) {
-                return $this->display_errs($errs);
-            } 
+        $inputs = $this->getInputs();    
+        foreach ($inputs as $input) {
+            (empty($_POST[$input]) || trim($_POST[$input]) == '') ?
+                $errs[] = "<b>" . ucfirst($input) . "</b>cannot be empty!" : null;
         }
+        
+        self::validateSpecChar('sku') ? $errs[] = self::validateSpecChar('sku') : null;
+        self::validateSpecChar('name') ? $errs[] = self::validateSpecChar('name') : null;
+        self::validateSKU() ? $errs[] = self::validateSKU() : null;        
+        
+        $attrs=['weight', 'price', 'size', 'h', 'l', 'w'];
+        for($i = 0; $i < count($attrs); $i++) {
+            $a = $attrs[$i];
+            if (!empty($_POST[$a]) && !is_numeric($_POST[$a])) {
+                $err = "<b>Please</b>provide numeric value for the <b>";
+                $err .= "$attrs[$i]!</b>";
+                $errs[] = $err;
+            }   
+        }
+        if (!empty($errs)) {
+            return $this->displayErrs($errs);
+        } else return null;
     }
-
-    // get Product's prop. arr
-    private function get_inputs() 
+    static private function validateSpecChar($prop): mixed
     {
-        $input_prop = ['sku', 'name', 'price'];    
+        $pattern = "/^[a-zA-Z0-9]*$/";
+        if (preg_match($pattern, $_POST[$prop]) === 0) {
+            $err = "<b>Please</b>include only letters, numbers or the ";
+            $err .= "combination of both in the <b>$prop</b>!";
+            return $err;
+        }   else return null;
+    }
+    static private function validateSKU(): ?string
+    {
+        if (DbOperations::checkSKU() != (NULL or '')) {
+            return DbOperations::checkSKU();
+        } else return null;
+    }
+    // get Product's properties
+    private function getInputs(): array
+    {
+        $classes = Controller::getClasses();
+        $i = 0;
         switch ($_POST['typeSwitcher']) {
-            case 'DVD':
-                $input_prop[] = 'size';
+            case $classes[$i++]:
+                array_push($this->prodProp,'weight');
                 break;
-            case 'Book':
-                $input_prop[] = 'weight';
+            case $classes[$i++]:
+                array_push($this->prodProp,'size');
                 break;
-            case 'Furniture':
-                array_push($input_prop,'w', 'l', 'h');
+            case $classes[$i++]:
+                array_push($this->prodProp,'w', 'l', 'h');
                 break;
         }
-
-        return $input_prop;
+//<?php var_dump(get_class_vars(get_class(new Classes\Book))); 
+        return $this->prodProp;
     }
 
-    private function display_errs($errs=[])
+    private function displayErrs($errs=[]): mixed
     {
         $display = '';
         if (!empty($errs)) {

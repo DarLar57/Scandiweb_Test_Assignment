@@ -11,7 +11,8 @@ abstract class Product
     public $price;
     public $type;
 
-    function getType() {
+    function getType(): mixed
+    {
         return $this->type;
     }
 }

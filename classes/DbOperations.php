@@ -9,7 +9,7 @@ class DbOperations extends DB
     public static $db;
     public $id;
 
-    public static function get_all(): array
+    public static function getAll(): array
     {
         $sql = "SELECT * FROM products ORDER BY id";
         $result = DB::$db->query($sql);
@@ -37,7 +37,7 @@ class DbOperations extends DB
         }
     }
 
-    public function checkSKU(): ?string 
+    public static function checkSKU(): ?string 
     {
         $sql = "SELECT * FROM products WHERE sku='" . $_POST['sku'] . "'";
             $result = DB::$db->query($sql);

@@ -8,6 +8,7 @@ class Furniture extends Product
     protected $w;
     protected $l;
     protected $h;
+    public $type = 'Furniture';
     static public $cols = ['id', 'sku', 'name', 'price', 'dimensions'];
 
     public function __construct($args=[]) 
@@ -15,8 +16,7 @@ class Furniture extends Product
         $this->sku = $args['sku'];
         $this->name = $args['name'];
         $this->price = $args['price'];
-        $this->dimensions = "[" . $args['h'] . ", " . $args['w'] . ", " .
-            $args['l'] . "]";
-        $this->type = 'Furniture';
+        $this->dimensions = "[" . $args['h'] . ", " . $args['w'] . ", " . 
+        $args['l'] . "]";
     }
 }
