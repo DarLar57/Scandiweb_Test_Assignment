@@ -1,28 +1,25 @@
 <?php
 
-namespace Classes;
+namespace Models;
+
+use Models\Products\Book;
+use Models\Products\DVD;
+use Models\Products\Furniture;
+
+include ('./app/models/Products/Book.php');
+include ('./app/models/Products/DVD.php');
+include ('./app/models/Products/Furniture.php');
 
 class Controller
 {
-    //getters for types of all Products to form automatically options
-    static function getProductTypes(): array
-    {
-        $types = array();
-
-        foreach(self::getClasses() as $class) {
-            $class = "Classes\\" . $class;
-            $types[] = (new $class)->getType();
-        }
-        return $types;
-    }
-    static function getClasses(): array
+    // All Prod. Types getter using method from extended Prod. Class
+    function getProductTypes()
     {
         $children = array();
-
         foreach(get_declared_classes() as $class) {
-            if (is_subclass_of( $class, 'Classes\Product' )) {
-                $children[] = substr($class, 8);
-            }
+            if (is_subclass_of( $class, 'Models\Product' )) {
+                $children[] = (new $class)->getType();
+            } 
         }
         return $children;
     }

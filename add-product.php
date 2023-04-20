@@ -1,12 +1,10 @@
 <?php
 
-use Classes\Controller;
-
-include('./initialize/initializing.php');
+require ('./app/initializing.php');
 
 $titlePage = 'Product Add';
 
-include('./common/head.php'); 
+include ('./app/head-footer/head.php'); 
 
 ?>
 
@@ -37,9 +35,9 @@ include('./common/head.php');
         <br><br>
         <label for="productType">Type Switcher</label>
         <select name="typeSwitcher" id="productType">
-    
-        <!-- Getting array of Prod. types via Controller reaching all Prod. extended Classes -->
-        <?php foreach(Controller::getProductTypes() as $type) {?>
+
+        <!-- Getting arr of Prod. types via Controller using getter method in extended Prod. Class -->
+        <?php foreach($controller->getProductTypes() as $type) {?>
     
             <option value=<?= '"' . $type . '"'; ?> id=<?= '"' . strtolower($type) . '"'; ?>
             <?= $controller->selected($type); ?>><?= $type; ?>
@@ -71,12 +69,9 @@ include('./common/head.php');
     <?= $errs; ?>
 
 </main>
-
-<?php include('./common/footer.php'); ?>
-
     <script src="https://code.jquery.com/jquery-3.6.3.min.js">
     </script>
-    <script src='./js/script.js'>
+    <script src='./app/frontend-js-css/js/script.js'>
     </script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Classes;
+namespace Models;
 
-use Classes\DB;
+use Models\DB;
 
 class DbOperations extends DB
 {
@@ -48,7 +48,7 @@ class DbOperations extends DB
             } else return null;
     }
 
-    public function insert($attr)
+    public function insert($attr): void
     {
         $sql = "INSERT INTO products (" . implode(', ', array_keys($attr)) . ") VALUES ('";
         $sql .= implode("', '", array_values($attr)) . "')";

@@ -1,0 +1,10 @@
+{
+    "authors": [
+        {
+            "name": "Dariusz Larsen"
+        }
+    ],
+    "autoload": {
+        "classmap": ["app/models", "app/models/Products"]
+    }
+}

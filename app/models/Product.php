@@ -1,6 +1,6 @@
 <?php
 
-namespace Classes;
+namespace Models;
 
 abstract class Product
 {
@@ -11,7 +11,7 @@ abstract class Product
     public $price;
     public $type;
 
-    function getType(): mixed
+    function getType()
     {
         return $this->type;
     }

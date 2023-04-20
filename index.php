@@ -1,10 +1,10 @@
 <?php
 
-include_once('./initialize/initializing.php'); 
+include_once('./app/initializing.php'); 
 
 $titlePage = 'Product List';
 
-include('./common/head.php');
+include('./app/head-footer/head.php');
 
 ?>
 <body>
@@ -20,7 +20,7 @@ include('./common/head.php');
     <main>
     <form id="item_list" method="POST">
  
-        <!-- Getting all the Products via Controller that returns array -->
+        <!-- Getting arr of Prod. via Controller requesting relevant Class from db -->
         <?php foreach($controller->getAllProducts() as $item) { $i = 0; ?>
       
             <div class="product">
@@ -41,7 +41,7 @@ include('./common/head.php');
     </form>
 </main>
 
-<?php include('./common/footer.php'); ?>
+<?php include('./app/head-footer/footer.php'); ?>
 
 </body>
 </html>

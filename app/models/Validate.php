@@ -1,6 +1,13 @@
 <?php
 
-namespace Classes;
+namespace Models;
+
+//require './vendor/autoload.php';
+
+use Models\Products\Book;
+use Models\Products\DVD;
+use Models\Products\Furniture;
+
 
 class Validate
 {
@@ -36,7 +43,7 @@ class Validate
             return $this->displayErrs($errs);
         } else return null;
     }
-    static private function validateSpecChar($prop): mixed
+    static private function validateSpecChar($prop)
     {
         $pattern = "/^[a-zA-Z0-9]*$/";
         if (preg_match($pattern, $_POST[$prop]) === 0) {
@@ -54,7 +61,7 @@ class Validate
     // get Product's properties
     private function getInputs(): array
     {
-        $classes = Controller::getClasses();
+        $classes = (new Controller)->getProductTypes();
         $i = 0;
         switch ($_POST['typeSwitcher']) {
             case $classes[$i++]:
@@ -67,11 +74,10 @@ class Validate
                 array_push($this->prodProp,'w', 'l', 'h');
                 break;
         }
-//<?php var_dump(get_class_vars(get_class(new Classes\Book))); 
         return $this->prodProp;
     }
 
-    private function displayErrs($errs=[]): mixed
+    private function displayErrs($errs=[]): ?string
     {
         $display = '';
         if (!empty($errs)) {
