@@ -2,11 +2,11 @@
 *********************************************************
 *                                                       *
 *  PROJECT IS HOSTED BY:                                *
-*  https://scandiweb-ver-5.darlar.infinityfreeapp.com   *
+*  https://scandiweb-ver-5.darlar.infinityfreeapp.com/  *
 *                                                       *
 *********************************************************
 
-Scandiweb_Test_Assignment_18042023
+Scandiweb_Test_Assignment_20042023
 
 Scandiweb_Test_Assignment for JUNIOR DEVELOPER. Text from https://scandiweb.notion.site/Junior-Developer-Test-Task-1b2184e40dea47df840b7c0cc638e61e
 
