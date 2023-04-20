@@ -1,10 +1,10 @@
 
-*********************************************************
-*                                                       *
-*  PROJECT IS HOSTED BY:                                *
-*  https://scandiweb-ver-5.darlar.infinityfreeapp.com/  *
-*                                                       *
-*********************************************************
+___________________________________________________
+                                                      
+PROJECT IS HOSTED BY:                                
+https://scandiweb-ver-5.darlar.infinityfreeapp.com/  
+                                                       
+___________________________________________________
 
 Scandiweb_Test_Assignment_20042023
 
