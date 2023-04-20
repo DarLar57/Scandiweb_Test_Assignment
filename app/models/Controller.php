@@ -13,7 +13,7 @@ include ('./app/models/Products/Furniture.php');
 class Controller
 {
     // All Prod. Types getter using method from extended Prod. Class
-    function getProductTypes()
+    function getProductTypes(): array
     {
         $children = array();
         foreach(get_declared_classes() as $class) {

@@ -24,7 +24,7 @@ class DbOperations extends DB
         return $obj_arr;
     }
 
-    public function delete()
+    public function delete(): void
     {
         foreach($_POST['delIdCheckBox'] as $del){ 
             $spec_char_del[] = htmlspecialchars($del);

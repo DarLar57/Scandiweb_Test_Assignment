@@ -43,7 +43,7 @@ class Validate
             return $this->displayErrs($errs);
         } else return null;
     }
-    static private function validateSpecChar($prop)
+    static private function validateSpecChar($prop): mixed
     {
         $pattern = "/^[a-zA-Z0-9]*$/";
         if (preg_match($pattern, $_POST[$prop]) === 0) {

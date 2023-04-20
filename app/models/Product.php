@@ -11,7 +11,7 @@ abstract class Product
     public $price;
     public $type;
 
-    function getType()
+    function getType(): string
     {
         return $this->type;
     }
