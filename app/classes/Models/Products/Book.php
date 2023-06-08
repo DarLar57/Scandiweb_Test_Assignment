@@ -1,18 +1,18 @@
 <?php
 
-namespace Models\Products;
+namespace App\Models\Products;
 
-use Models\Product;
+use App\Models\Product;
 
-class DVD extends Product 
+class Book extends Product
 {
-    public $size;
+    public $weight;
     public function __construct($args=[]) 
     {
         $this->sku = $args['sku'] ?? '';
         $this->name = $args['name'] ?? '';
         $this->price = $args['price'] ?? '';
-        $this->size = $args['size'] ?? '';
-        $this->type = 'DVD';
+        $this->weight = $args['weight'] ?? '';
+        $this->type = 'Book';
     }
 }

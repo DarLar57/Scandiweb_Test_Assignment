@@ -1,8 +1,8 @@
 <?php
 
-use Models\DbOperations;
-use Models\Controller;
-use Models\Validate;
+use App\Models\DbOperations;
+use App\Controller\Controller;
+use App\Models\Validate;
 
 require __DIR__ . '/../vendor/autoload.php';
 

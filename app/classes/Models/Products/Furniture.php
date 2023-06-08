@@ -1,8 +1,8 @@
 <?php
 
-namespace Models\Products;
+namespace App\Models\Products;
 
-use Models\Product;
+use App\Models\Product;
 
 class Furniture extends Product
 {

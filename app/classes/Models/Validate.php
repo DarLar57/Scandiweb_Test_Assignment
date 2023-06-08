@@ -1,13 +1,13 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
-//require './vendor/autoload.php';
+require './vendor/autoload.php';
 
-use Models\Products\Book;
-use Models\Products\DVD;
-use Models\Products\Furniture;
-
+use App\Models\Products\Book;
+use App\Models\Products\DVD;
+use App\Models\Products\Furniture;
+use App\Controller\Controller;
 
 class Validate
 {

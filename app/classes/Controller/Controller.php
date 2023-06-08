@@ -1,14 +1,17 @@
 <?php
 
-namespace Models;
+namespace App\Controller;
 
-use Models\Products\Book;
-use Models\Products\DVD;
-use Models\Products\Furniture;
+use App\Models\Products\Book;
+use App\Models\Products\DVD;
+use App\Models\Products\Furniture;
+use App\Models\DbOperations;
+use App\DB;
+use App\Models\Validate;
 
-include ('./app/models/Products/Book.php');
-include ('./app/models/Products/DVD.php');
-include ('./app/models/Products/Furniture.php');
+include ('app/classes/Models/Products/Book.php');
+include ('app/classes/Models/Products/DVD.php');
+include ('app/classes/Models/Products/Furniture.php');
 
 class Controller
 {
@@ -17,7 +20,7 @@ class Controller
     {
         $children = array();
         foreach(get_declared_classes() as $class) {
-            if (is_subclass_of( $class, 'Models\Product' )) {
+            if (is_subclass_of( $class, 'App\Models\Product' )) {
                 $children[] = (new $class)->getType();
             } 
         }

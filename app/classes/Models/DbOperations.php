@@ -1,8 +1,8 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
-use Models\DB;
+use \App\DB;
 
 class DbOperations extends DB
 {
