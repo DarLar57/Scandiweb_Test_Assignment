@@ -59,11 +59,11 @@ include ('./app/head-footer/head.php');
         <div id="dims-cont">
             <p>Please provide dimensions in H*W*L format (Height / Width / Length).</p>
             <label for="height">Height (cm)</label>
-            <input type="text" name="h" id="height" placeholder="0" maxlength="4" value="<?= $_POST ['h'] ?? ''; ?>">
+            <input type="text" name="height" id="height" placeholder="0" maxlength="4" value="<?= $_POST ['height'] ?? ''; ?>">
             <label for="width">Width (cm)</label>
-            <input type="text" name="w" id="width" placeholder="0" maxlength="4" value="<?= $_POST ['w'] ?? ''; ?>">
+            <input type="text" name="width" id="width" placeholder="0" maxlength="4" value="<?= $_POST ['width'] ?? ''; ?>">
             <label for="length">Length (cm)</label>
-            <input type="text" name="l" id="length" placeholder="0" maxlength="4" value="<?= $_POST ['l'] ?? ''; ?>">
+            <input type="text" name="length" id="length" placeholder="0" maxlength="4" value="<?= $_POST ['length'] ?? ''; ?>">
         </div>
     </form>
     <?= $errs; ?>

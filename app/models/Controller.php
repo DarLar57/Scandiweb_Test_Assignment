@@ -97,9 +97,9 @@ class Controller
         $arg['weight'] = $_POST['weight'] ?? NULL;
         $arg['price'] = $_POST['price'] ?? NULL;
         $arg['size'] = $_POST['size'] ?? NULL;
-        $arg['h'] = $_POST['h'] ?? NULL;
-        $arg['l'] = $_POST['l'] ?? NULL;
-        $arg['w'] = $_POST['w'] ?? NULL;
+        $arg['height'] = $_POST['height'] ?? NULL;
+        $arg['length'] = $_POST['length'] ?? NULL;
+        $arg['width'] = $_POST['width'] ?? NULL;
                 
         if ($_POST['size'] != NULL) {
             $add_obj = new DVD($arg);
@@ -109,7 +109,7 @@ class Controller
             $add_obj = new Book($arg);
         }
     
-        elseif ($_POST['w'] != NULL) {
+        elseif ($_POST['width'] != NULL) {
             $add_obj = new Furniture($arg);
         }
         

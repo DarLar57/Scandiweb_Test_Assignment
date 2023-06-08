@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'darlar57/scandiweb-junior-test',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'e42594c703ae4fe73e89bf0e491124ccc7dfc689',
+        'reference' => '978b681f6f1eeb94560c005666d5f4ae90368843',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'darlar57/scandiweb-junior-test' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e42594c703ae4fe73e89bf0e491124ccc7dfc689',
+            'reference' => '978b681f6f1eeb94560c005666d5f4ae90368843',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

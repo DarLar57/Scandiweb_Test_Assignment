@@ -6,21 +6,34 @@ namespace Composer\Autoload;
 
 class ComposerStaticInita0cfc84e715c104c7bc151c9a0828b85
 {
+    public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Models\\Products\\' => 16,
+            'Models\\' => 7,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Models\\Products\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/models/Products',
+        ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/models',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Models\\Controller' => __DIR__ . '/../..' . '/app/models/Controller.php',
-        'Models\\DB' => __DIR__ . '/../..' . '/app/models/DB.php',
-        'Models\\DbOperations' => __DIR__ . '/../..' . '/app/models/DbOperations.php',
-        'Models\\Product' => __DIR__ . '/../..' . '/app/models/Product.php',
-        'Models\\Products\\Book' => __DIR__ . '/../..' . '/app/models/Products/Book.php',
-        'Models\\Products\\DVD' => __DIR__ . '/../..' . '/app/models/Products/DVD.php',
-        'Models\\Products\\Furniture' => __DIR__ . '/../..' . '/app/models/Products/Furniture.php',
-        'Models\\Validate' => __DIR__ . '/../..' . '/app/models/Validate.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInita0cfc84e715c104c7bc151c9a0828b85::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita0cfc84e715c104c7bc151c9a0828b85::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInita0cfc84e715c104c7bc151c9a0828b85::$classMap;
 
         }, null, ClassLoader::class);

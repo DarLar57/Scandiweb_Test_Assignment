@@ -71,7 +71,7 @@ class Validate
                 array_push($this->prodProp,'size');
                 break;
             case $classes[$i++]:
-                array_push($this->prodProp,'w', 'l', 'h');
+                array_push($this->prodProp,'width', 'length', 'height');
                 break;
         }
         return $this->prodProp;
