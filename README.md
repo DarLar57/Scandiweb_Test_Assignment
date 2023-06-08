@@ -2,7 +2,7 @@
 ___________________________________________________
                                                       
 PROJECT IS HOSTED BY:                                
-https://scandiweb-ver-5.darlar.infinityfreeapp.com/  
+https://scandiweb.darlar.infinityfreeapp.com/  
                                                        
 ___________________________________________________
 
