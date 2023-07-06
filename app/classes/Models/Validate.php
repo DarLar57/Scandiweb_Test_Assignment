@@ -4,9 +4,6 @@ namespace App\Models;
 
 require './vendor/autoload.php';
 
-use App\Models\Products\Book;
-use App\Models\Products\DVD;
-use App\Models\Products\Furniture;
 use App\Controller\Controller;
 
 class Validate
